@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="text-center">
+
+<h1>List of Companies</h1>
+<table class="table">
+<thead>
+	<th class="text-center">Company Name</th>
+	<th class="text-center">Feedback</th>
+</thead>
+<tbody>
+{% for company in data %}
+	<tr>
+	<td>{{ company.name }}</td>
+	<td><a href="{% url 'feedback' %}?company_id={{ company.id }}">Feedback</a></td>	
+	</tr>
+	
+{% endfor %}
+</tbody>
+</table>
+</div>
+{% endblock content %}
